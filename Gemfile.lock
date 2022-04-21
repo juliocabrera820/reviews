@@ -223,8 +223,8 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   rspec-rails
-  rubocop (~> 1.12)
-  rubocop-rails (~> 2.9)
+  rubocop
+  rubocop-rails
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
