@@ -208,6 +208,7 @@ GEM
 
 PLATFORMS
   -darwin-21
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -231,7 +232,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.2.32
