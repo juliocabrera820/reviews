@@ -50,3 +50,8 @@ jobs:
           PGPORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
         run: bundle exec rspec spec
+      - name: Run rubocop and add comments in pull request
+        uses: reviewdog/action-rubocop@v2
+        with:
+          rubocop_version: gemfile
+          reporter: github-pr-review
