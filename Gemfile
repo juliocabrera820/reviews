@@ -50,3 +50,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'graphql'
 gem 'bcrypt', '~> 3.1.13'
+gem 'jwt'
+gem 'dotenv-rails'

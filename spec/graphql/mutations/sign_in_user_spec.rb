@@ -12,9 +12,11 @@ RSpec.describe Mutations::SignInUser, type: :request do
         data = JSON.parse(response.body, symbolize_name: true).with_indifferent_access
 
         sign_in_data = data.dig(:data, :signInUser)
+        username = data.dig(:data, :signInUser, :user, :username)
 
         expect(response).to have_http_status(:ok)
-        expect(sign_in_data).to include(:token)
+        expect(sign_in_data).to include(:token, :user)
+        expect(username).to eq 'juju'
       end
     end
 
@@ -46,6 +48,9 @@ RSpec.describe Mutations::SignInUser, type: :request do
       <<~GQL
         mutation {
           signInUser(input: { credentials: { email: "#{email}", password: "#{password}" } }) {
+            user {
+              username
+            }
             token
           }
         }
