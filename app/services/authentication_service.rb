@@ -17,6 +17,6 @@ class AuthenticationService
   end
 
   def self.secret
-    ENV.fetch('JWT_SECRET', nil) || default_secret
+    ENV.fetch('JWT_SECRET', nil) || 'jwtttw'
   end
 end
