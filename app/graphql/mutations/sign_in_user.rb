@@ -3,7 +3,7 @@ module Mutations
     argument :credentials, Types::Input::AuthenticationProviderCredentialsInput, required: true
 
     field :token, String, null: true
-    # field :user, Types::UserType, null: true
+    field :user, Types::UserType, null: true
 
     def resolve(credentials: nil)
       user = User.find_by(email: credentials[:email])
@@ -11,9 +11,9 @@ module Mutations
 
       return GraphQL::ExecutionError.new('Invalid credentials') unless user.authenticate(credentials[:password])
 
-      # TODO: Add JWT
+      token = AuthenticationService.encode(user)
 
-      { token: 'defaulttoken' }
+      { user: user, token: token }
     end
   end
 end
