@@ -7,7 +7,6 @@ RSpec.describe Mutations::CreateUser, type: :request do
         post '/graphql', params: { query: query(username: 'juju', email: 'juju@gmail.com', password: '12345') }
         data = JSON.parse(response.body, symbolize_name: true).with_indifferent_access
 
-        puts data.inspect
         user = data.dig(:data, :createUser, :user)
 
         expect(response).to have_http_status(:ok)
