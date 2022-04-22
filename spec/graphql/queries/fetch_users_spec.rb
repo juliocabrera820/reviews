@@ -15,7 +15,7 @@ RSpec.describe Queries::FetchUsers, type: :request do
     end
 
     context 'with created users' do
-      it 'retrieves three users' do
+      it 'retrieves all users' do
         FactoryBot.create_list(:random_user, 3)
         post '/graphql', params: { query: query }
         data = JSON.parse(response.body, symbolize_names: true)

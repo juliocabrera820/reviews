@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Queries::FetchUser, type: :request do
   describe '.resolve' do
-    context 'user does not exist' do
+    context 'with existing user' do
       let(:user_created) { FactoryBot.create(:user) }
 
       it 'returns a user' do
@@ -17,7 +17,7 @@ RSpec.describe Queries::FetchUser, type: :request do
       end
     end
 
-    context 'with existing user' do
+    context 'user does not exist' do
       it 'does not return a user' do
         post '/graphql', params: { query: query(2) }
 
