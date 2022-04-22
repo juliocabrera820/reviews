@@ -1,6 +1,6 @@
 class AuthenticationService
-  SECRET = ENV.fetch('JWT_SECRET') || default_secret
-  TOKEN_EXPIRATION_TIME = ENV.fetch('JWT_EXPIRATION_TIME').to_i || expires_in
+  SECRET = ENV.fetch('JWT_SECRET', nil) || default_secret
+  TOKEN_EXPIRATION_TIME = ENV.fetch('JWT_EXPIRATION_TIME', nil).to_i || expires_in
   EXPIRATION_TIME = (Time.now.to_i + 1) * TOKEN_EXPIRATION_TIME
 
   # TODO: Verify implementation
