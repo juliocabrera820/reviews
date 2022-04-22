@@ -15,11 +15,11 @@ class AuthenticationService
     JWT.encode(payload, SECRET)
   end
 
-  def self.expires_in
+  def expires_in
     2.hours.since.to_i
   end
 
-  def self.default_secret
+  def default_secret
     'jwtttj'
   end
 end
